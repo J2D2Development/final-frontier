@@ -1,0 +1,45 @@
+.wrapper-outer {
+    align-items: space-between;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    header {
+        background-color: transparent;
+        width: 100%;
+    }
+
+    nav {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    ul {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    section {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    footer {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+    }
+}
