@@ -1,4 +1,4 @@
-// @flow
+
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
@@ -8,9 +8,10 @@ import { HighScores } from './Components/HighScores/HighScores';
 
 //import logo from './logo.svg';
 import './base-styles.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 type State = {
-	scores: Array<Object>,
+	scores: Array,
 	username: String
 }
 
@@ -44,18 +45,18 @@ class App extends Component<State> {
 	render() {
 		return (
 			<div className="App">
-			<Route exact path="/"
-				render={()=><Welcome username={this.state.username} setUsername={this.setUsername} />}
-			/>
-			<Route exact path="/game"
-				render={()=><GameMain username={this.state.username} />}
-			/>
+				<Route exact path="/"
+					render={()=><Welcome username={this.state.username} setUsername={this.setUsername} />}
+				/>
+				<Route exact path="/game"
+					render={()=><GameMain username={this.state.username} />}
+				/>
 
-			<Route exact path="/high-scores" 
-					render={()=><HighScores 
-					scores={this.state.scores}
-				/>} 
-			/>  
+				<Route exact path="/high-scores" 
+						render={()=><HighScores 
+						scores={this.state.scores}
+					/>} 
+				/>  
 			</div>
 		);
 	}

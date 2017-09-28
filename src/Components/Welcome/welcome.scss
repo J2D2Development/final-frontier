@@ -1,0 +1,31 @@
+canvas {
+    background-color: rgba(0,0,0,0.9);
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.welcome {
+    a {
+        align-items: center;
+        background-color: rgb(34, 49, 63);
+        color: rgb(228, 241, 254);
+        display: flex;
+        justify-content: space-around;
+        margin: 0px auto;
+        padding: 0.25em;
+        position: relative;
+        text-decoration: none;
+        width: 150px;
+    }
+
+    i {
+        transition: transform 0.3s;
+    }
+
+    a:hover > i {
+        color: yellow;
+        transform: rotate(-45deg);
+    }
+}
