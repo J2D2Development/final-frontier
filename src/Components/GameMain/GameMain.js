@@ -9,17 +9,12 @@ import { NavBar } from './NavBar/NavBar';
 
 import './game-main.css';
 
-export const GameMain = ({characters, chooseCharacter, gameState, p1Character, computerCharacter, battleText, resetGame, winner}) => {
+export const GameMain = ({characters, chooseCharacter, gameState, p1Character, p1Stats, computerCharacter, battle, resetGame, playAgain, winner}) => {
+    console.log(p1Stats);
     const characterCards = characters.map((char, index) => {
         return <Icon key={index}
             character={char} 
             chooseCharacter={chooseCharacter} />
-    });
-
-    const battleBubbles = battleText.map((text, index) => {
-        return <Bubble key={index}
-            character={text.name}
-            phrase={text.text} />
     });
 
     return (
@@ -38,18 +33,16 @@ export const GameMain = ({characters, chooseCharacter, gameState, p1Character, c
                     </div>
                 }
                 {
-                    (gameState === 'p1Ready' || gameState === 'battle') &&
+                    gameState === 'p1Ready' &&
                     <div className="wrapper-inner">
                         <div>
                             <h1>Your Character</h1>
                             <Card character={p1Character} />
                         </div>
-                        {
-                            gameState === 'battle' &&
-                            <div className="wrapper-battle">
-                                {battleBubbles}
-                            </div>
-                        }
+                        <div className="flex-col-center">
+                            <h3>Versus</h3>
+                            <input type="button" onClick={() => battle(p1Character, computerCharacter)} value="Begin!" />
+                        </div>
                         <div>
                             <h1>Computer</h1>
                             <Card character={computerCharacter} />
@@ -60,9 +53,25 @@ export const GameMain = ({characters, chooseCharacter, gameState, p1Character, c
                     (gameState === 'Won' || gameState === 'Lost') &&
                     <div className="wrapper-inner">
                         <div>
-                            <h1>You {gameState} the Match!</h1>
-                            <h3>{winner.victoryText}</h3>
-                            <Card character={winner} />
+                            <h1>You {gameState} the Match</h1>
+                            <h3>
+                                {winner.name} was victorious.
+                            </h3>
+                            <div className="add-shadow italic padding-sm">
+                                {winner.victoryText}
+                            </div>
+                            <input type="button" onClick={playAgain} value="Play Again?" />
+                            <Link to="/high-scores">View High Scores</Link>
+                        </div>
+                    </div>
+                }
+                {
+                    gameState === 'Draw' &&
+                    <div className="wrapper-inner">
+                        <div>
+                            <h1>It's a Draw</h1>
+                            <input type="button" onClick={playAgain} value="Play Again?" />
+                            <Link to="/high-scores">View High Scores</Link>
                         </div>
                     </div>
                 }
@@ -72,7 +81,7 @@ export const GameMain = ({characters, chooseCharacter, gameState, p1Character, c
                     Boldly Going With a Little Help From React
                 </div>
                 <div>
-                    <Link to="/high-scores">View High Scores</Link>
+                    Current Score: {p1Stats.score}
                 </div>
             </footer>
         </div>

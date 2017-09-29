@@ -23,9 +23,10 @@
     ul {
         align-items: center;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         margin: 0;
         padding: 0;
+        width: 100%;
     }
 
     li {
@@ -34,8 +35,13 @@
         padding: 0;
     }
 
+    a {
+        display: block;
+    }
+
     section {
         align-items: center;
+        background-color: rgba(0,0,0,0.1);
         display: flex;
         justify-content: center;
         flex: 1;

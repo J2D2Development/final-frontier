@@ -7,17 +7,12 @@ export const NavBar = ({resetGame}) => {
         <nav>
             <ul>
                 <li>
-                    <Link to="/">Logo</Link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <a onClick={resetGame}>
-                        Reset
-                    </a>
+                    <Link to="/high-scores" className="padding-sm">
+                        Hall of Fame
+                    </Link>
                 </li>
                 <li>
-                    <Link onClick={resetGame} to="/">
+                    <Link onClick={resetGame} to="/" className="padding-sm">
                         Quit
                     </Link>
                 </li>

@@ -10,7 +10,7 @@ export const Card = ({character}) => {
             <div className="image">
                 <img src={character.image} alt={character.name} />
             </div>
-            <div className="footer">{character.class}</div>
+            <div className="footer add-shadow">{character.battleText}</div>
         </div>
     );
 }
