@@ -4,6 +4,10 @@
     flex-direction: column;
     height: 100vh;
 
+    h1 {
+        text-align: center;
+    }
+
     header {
         background-color: transparent;
         width: 100%;
@@ -35,6 +39,30 @@
         display: flex;
         justify-content: center;
         flex: 1;
+
+        .wrapper-inner {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            width: 100%;
+        }
+    }
+
+    .card-wrapper {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .wrapper-battle {
+        &:nth-child(even) {
+            margin-left: -20px;
+        }
+        &:nth-child(odd) {
+            margin-right: -20px;
+        }
     }
 
     footer {

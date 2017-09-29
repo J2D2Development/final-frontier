@@ -1,0 +1,45 @@
+.card {
+    margin: 1em auto;
+    transition: transform 0.25s;
+
+    .header {
+        font-size: 1.25em;
+        padding: 0.25em;
+    }
+
+    .image {
+        img {
+            width: 100%;
+        }
+    }
+
+    .footer {
+        font-size: 0.85em;
+        font-style: italic;
+        padding: 0.25em;
+    }
+}
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-full {
+    width: 200px;
+
+    .image {
+        img {
+            height: 200px;
+        }
+    }
+}
+
+.card-icon {
+    cursor: pointer;
+    width: 150px;
+
+    .image {
+        img {
+            height: 150px;
+        }
+    }
+}

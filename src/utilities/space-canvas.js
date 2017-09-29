@@ -1,3 +1,5 @@
+import { randomNumber } from './logic.js';
+
 export const spaceCanvas = (elementName) => {
     const canvas = document.getElementById(elementName);
     const ctx = canvas.getContext('2d');
@@ -51,8 +53,4 @@ function randomX(radius, maxWidth) {
 
 function randomY(radius, maxHeight) {
     return randomNumber(0 + radius, maxHeight - radius);
-}
-
-function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
 }
