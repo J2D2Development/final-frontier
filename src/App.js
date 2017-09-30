@@ -16,7 +16,7 @@ class App extends Component {
 		this.state = {
 			characters: characters,
 			p1Character: {},
-			p1Stats: { initials: '', score: 90 },
+			p1Stats: { initials: '', score: 0 },
 			computerCharacter: {},
 			gameState: 'ready',
 			scores: [],
