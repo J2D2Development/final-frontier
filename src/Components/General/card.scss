@@ -16,7 +16,9 @@
     .footer {
         font-size: 0.85em;
         font-style: italic;
+        margin-top: 0.5em;
         padding: 0.25em;
+        position: relative;
     }
 }
 
@@ -28,11 +30,31 @@
             height: 200px;
         }
     }
+
+    .footer {
+        margin-top: 1.25em;
+    }
+
+    .footer:before {
+        animation: bottom-up 2s infinite;
+        content: ' ';
+        height: 0;
+        left: 50%;
+        margin-left: -10px;
+        position: absolute;
+        text-align: center;
+        top: -20px;
+        width: 0;
+        border: 10px solid transparent;
+        border-bottom-color: #C5EFF7;
+    }
 }
 
 .card-icon {
+    backface-visibility: hidden;
     cursor: pointer;
-    margin: 0 0.5em;
+    margin: 0 0.75em;
+    transform: translateZ(0);
     transition: transform 0.25s;
     width: 150px;
 

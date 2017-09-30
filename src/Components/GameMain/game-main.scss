@@ -9,45 +9,17 @@
     }
 
     header {
-        background-color: #333;
+        background-color: transparent;
         width: 100%;
-    }
-
-    nav {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-
-    ul {
-        align-items: center;
-        display: flex;
-        justify-content: space-between;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    li {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    a {
-        display: block;
     }
 
     section {
         align-items: center;
-        background-color: #ccc;
+        background-color: #22313F;
+        color: #C5EFF7;
         display: flex;
         justify-content: center;
         flex: 1;
-        overflow: hidden;
-        animation: bg-scale 1s;
-        animation-fill-mode: forwards;
 
         .wrapper-inner {
             display: flex;
@@ -57,7 +29,7 @@
         }
 
         .wrapper-individual {
-            margin: 0 1em;
+            margin: 0 2em;
         }
     }
 

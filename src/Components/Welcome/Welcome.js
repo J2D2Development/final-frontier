@@ -5,14 +5,7 @@ import { spaceCanvas } from '../../utilities/space-canvas';
 
 import './welcome.css';
 
-type Props = {
-    username: String, setUsername: Function
-}
-
 export class Welcome extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount = () => {
         spaceCanvas('space');

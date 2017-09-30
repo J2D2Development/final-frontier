@@ -7,25 +7,35 @@ canvas {
 }
 
 .welcome {
+    h1, h4 {
+        color: #E4F1FE;
+        margin: 0;
+        padding: 0;
+    }
     a {
         align-items: center;
+        backface-visibility: hidden;
         background-color: rgb(34, 49, 63);
         color: rgb(228, 241, 254);
         display: flex;
         justify-content: space-around;
-        margin: 0px auto;
+        margin: 0.5em auto;
+        opacity: 0;
         padding: 0.25em;
         position: relative;
         text-decoration: none;
+        transform: scale(0) translateZ(0);
         width: 150px;
+        animation: fade-in 1.5s ease-in;
+        animation-fill-mode: forwards;
     }
 
     i {
+        transform: rotate(45deg);
         transition: transform 0.3s;
     }
 
     a:hover > i {
-        color: yellow;
         transform: rotate(-45deg);
     }
 }

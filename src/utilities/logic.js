@@ -1,8 +1,14 @@
+import picardImg from '../img/picard-on-risa.jpg';
+import borgImg from '../img/borg.jpg';
+import klingonImg from '../img/klingon.jpg';
+import romulanImg from '../img/romulan.jpg';
+import ferengiImg from '../img/ferengi.jpg';
+
 export const characters = [
     {
         "name": "Jean-Luc Picard",
         "class": "Federation",
-        "image": "https://programapilotoblog.files.wordpress.com/2014/11/picard-on-risa.jpg",
+        "image": picardImg,
         "battleText": "Make it so",
         "victoryText": "We truly are the Greatest Generation",
         "beats": ["Klingon", "Ferengi"]
@@ -10,7 +16,7 @@ export const characters = [
     {
         "name": "3 of 8",
         "class": "Borg",
-        "image": "https://vignette.wikia.nocookie.net/memoryalpha/images/e/ed/Hugh_body.jpg/revision/latest/scale-to-width-down/350?cb=20120218232842&path-prefix=en",
+        "image": borgImg,
         "battleText": "Resistence is Futile",
         "victoryText": "You have been assimilated",
         "beats": ["Federation", "Ferengi"]
@@ -18,7 +24,7 @@ export const characters = [
     {
         "name": "Gowron",
         "class": "Klingon",
-        "image": "https://upload.wikimedia.org/wikipedia/en/d/d6/Gowron.jpg",
+        "image": klingonImg,
         "battleText": "Klingons do NOT surrender!",
         "victoryText": "Victory is the only path",
         "beats": ["Romulan", "Borg"]
@@ -26,7 +32,7 @@ export const characters = [
     {
         "name": "N'Vek",
         "class": "Romulan",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/35/Star_Trek_costume_-_Romulan.jpg",
+        "image": romulanImg,
         "battleText": "You cannot defeat me",
         "victoryText": "For the empire!",
         "beats": ["Federation", "Borg"]
@@ -34,11 +40,18 @@ export const characters = [
     {
         "name": "Quark",
         "class": "Ferengi",
-        "image": "https://upload.wikimedia.org/wikipedia/en/4/42/QuarkDS9.jpg",
+        "image": ferengiImg,
         "battleText": "I'm sure we can reach a deal...",
         "victoryText": "There's much profit in victory",
         "beats": ["Romulan", "Borg"]
     }
+];
+
+export const initialScores = [
+	{initials: "Joe", score: 50}, {initials: "AOB", score: 90}, {initials: "QBT", score: 100},
+	{initials: "RON", score: 40}, {initials: "aae", score: 22}, {initials: "pHL", score: 27},
+	{initials: "AAA", score: 14}, {initials: "zed", score: 7}, {initials: "e4q", score: 19},
+	{initials: "arg", score: 14}
 ];
 
 export const getRandomCharacter = () => {

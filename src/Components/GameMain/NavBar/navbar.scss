@@ -1,0 +1,31 @@
+nav {
+    align-items: center;
+    color: #e4f1fe;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    overflow: hidden;
+    padding: 0 0.75em;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    ul {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    li {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    a {
+        display: block;
+    }
+}

@@ -15,9 +15,6 @@ describe('Basic functionality tests', () => {
 	});
 	
 	it('Updates initials', () => {
-		view.
-	})
-})
-
-
-var result = view.daysFromNextMonth(day, 10)
+		console.log(view);
+	});
+});

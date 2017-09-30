@@ -1,23 +1,14 @@
-
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import { CSSTransitionGroup } from 'react-transition-group';
 
 import { GameMain } from './Components/GameMain/GameMain';
 import { Welcome } from './Components/Welcome/Welcome';
 import { HighScores } from './Components/HighScores/HighScores';
 
-//import logo from './logo.svg';
 import './base-styles.css';
 import 'font-awesome/css/font-awesome.min.css';
 
-import { characters, getRandomCharacter, zip } from './utilities/logic';
-
-
-//to be loaded from db?
-const testScores = [
-	{initials: "Joe", score: 14}, {initials: "Ash", score: 99}, {initials: "QBT", score: 58}
-];
+import { characters, getRandomCharacter,initialScores } from './utilities/logic';
 
 class App extends Component {
 	constructor() {
@@ -25,7 +16,7 @@ class App extends Component {
 		this.state = {
 			characters: characters,
 			p1Character: {},
-			p1Stats: { initials: '', score: 0 },
+			p1Stats: { initials: '', score: 90 },
 			computerCharacter: {},
 			gameState: 'ready',
 			scores: [],
@@ -35,8 +26,9 @@ class App extends Component {
 	}
 
 	componentDidMount = () => {
+		const scoresClone = Array.from(initialScores);
 		this.setState((prevState, props) => {
-			return { scores: testScores };
+			return { scores: scoresClone };
 		});
 	}
 
@@ -93,13 +85,10 @@ class App extends Component {
 				winner,
 				p1Stats: p1Clone
 			}
-		}, () => {
-			console.log('updated score:', this.state.p1Stats);
 		});
 	}
 
 	setInitials = (evt) => {
-		console.log(evt.target.value);
 		const p1Clone = Object.assign({}, this.state.p1Stats);
 		p1Clone.initials = evt.target.value;
 
@@ -108,13 +97,30 @@ class App extends Component {
 		});
 	}
 
-	saveScore = () => {
+	saveScoreState = (saving) => {
+		this.setState((prevState, props) => {
+			return { savingScore: saving }
+		});
+	}
+
+	saveScore = (evt, allow) => {
+		evt.preventDefault();
+		if(!allow) { return; }
 		const p1Clone = Object.assign({}, this.state.p1Stats);
-		let updatedScores = [...this.state.scores];
+		let updatedScores = Array.from(this.state.scores);
 		updatedScores.push(p1Clone);
 
+		let newSortedTopTen = updatedScores.sort((s1, s2) => {
+			return s1.score > s2.score ? -1 : 1;
+		}).slice(0, 10);
+
 		this.setState((prevState, props) => {
-			return { scores: updatedScores }
+			return { 
+				scores: newSortedTopTen,
+				savingScore: false
+			 }
+		}, () => {
+			this.resetGame();
 		});
 	}
 
@@ -143,6 +149,15 @@ class App extends Component {
 		});
 	}
 
+	resetScores = () => {
+		const scoresClone = [];
+		this.setState((prevState, props) => {
+			return {
+				scores: scoresClone
+			}
+		});
+	}
+
 	render() {
 		return (
 			<div className="App">
@@ -160,18 +175,23 @@ class App extends Component {
 							chooseCharacter={this.chooseCharacter}
 							gameState={this.state.gameState}
 							playAgain={this.playAgain}
+							scores={this.state.scores}
+							saveScoreState={this.saveScoreState}
 							resetGame={this.resetGame}
 							winner={this.state.winner}
 						/>}
 					/>
 
 					<Route exact path="/high-scores" 
-						render={()=><HighScores 
-						scores={this.state.scores}
-						setInitials={this.setInitials}
-						saveScore={this.saveScore}
-						savingScore={this.state.savingScore}
-					/>}
+						render={()=><HighScores
+							p1Stats={this.state.p1Stats}
+							resetGame={this.resetGame}
+							resetScores={this.resetScores}
+							scores={this.state.scores}
+							setInitials={this.setInitials}
+							saveScore={this.saveScore}
+							savingScore={this.state.savingScore}
+						/>}
 					/>
 			</div>
 		);
