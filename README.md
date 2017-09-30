@@ -7,7 +7,8 @@ I went down a couple rabbit holes (React route transition animation and integrat
 ---
 
 ### Live on the net
-You should be able to go to: and play the game.
+You should be able to go to this url and play the game.
+https://final-frontier-b5276.firebaseapp.com/
 
 ### Local Options
 If you want to run it locally
