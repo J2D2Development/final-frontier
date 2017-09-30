@@ -11,6 +11,7 @@ You should be able to go to: and play the game.
 
 ### Local Options
 If you want to run it locally
+
 | Command | Description |
 | ------- | ----------- |
 | `npm install` | Should install all the dependencies you need |
