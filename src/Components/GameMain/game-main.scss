@@ -9,7 +9,7 @@
     }
 
     header {
-        background-color: transparent;
+        background-color: #333;
         width: 100%;
     }
 
@@ -41,16 +41,23 @@
 
     section {
         align-items: center;
-        background-color: rgba(0,0,0,0.1);
+        background-color: #ccc;
         display: flex;
         justify-content: center;
         flex: 1;
+        overflow: hidden;
+        animation: bg-scale 1s;
+        animation-fill-mode: forwards;
 
         .wrapper-inner {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             text-align: center;
             width: 100%;
+        }
+
+        .wrapper-individual {
+            margin: 0 1em;
         }
     }
 
@@ -62,17 +69,9 @@
         width: 100%;
     }
 
-    .wrapper-battle {
-        &:nth-child(even) {
-            margin-left: -20px;
-        }
-        &:nth-child(odd) {
-            margin-right: -20px;
-        }
-    }
-
     footer {
         align-items: center;
+        background-color: #333;
         display: flex;
         justify-content: space-between;
     }

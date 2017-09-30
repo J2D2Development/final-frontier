@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import { Bubble } from '../General/Bubble';
 import { Card } from '../General/Card';
 import { Icon } from '../General/Icon';
 import { NavBar } from './NavBar/NavBar';
@@ -10,7 +9,6 @@ import { NavBar } from './NavBar/NavBar';
 import './game-main.css';
 
 export const GameMain = ({characters, chooseCharacter, gameState, p1Character, p1Stats, computerCharacter, battle, resetGame, playAgain, winner}) => {
-    console.log(p1Stats);
     const characterCards = characters.map((char, index) => {
         return <Icon key={index}
             character={char} 
@@ -19,7 +17,7 @@ export const GameMain = ({characters, chooseCharacter, gameState, p1Character, p
 
     return (
         <div className="wrapper-outer">
-            <header>
+            <header className="text-light">
                 <NavBar resetGame={resetGame} />
             </header>
             <section>
@@ -35,7 +33,7 @@ export const GameMain = ({characters, chooseCharacter, gameState, p1Character, p
                 {
                     gameState === 'p1Ready' &&
                     <div className="wrapper-inner">
-                        <div>
+                        <div className="wrapper-individual">
                             <h1>Your Character</h1>
                             <Card character={p1Character} />
                         </div>
@@ -43,7 +41,7 @@ export const GameMain = ({characters, chooseCharacter, gameState, p1Character, p
                             <h3>Versus</h3>
                             <input type="button" onClick={() => battle(p1Character, computerCharacter)} value="Begin!" />
                         </div>
-                        <div>
+                        <div className="wrapper-individual">
                             <h1>Computer</h1>
                             <Card character={computerCharacter} />
                         </div>
@@ -76,7 +74,7 @@ export const GameMain = ({characters, chooseCharacter, gameState, p1Character, p
                     </div>
                 }
             </section>
-            <footer>
+            <footer className="padding-sm text-light">
                 <div>
                     Boldly Going With a Little Help From React
                 </div>

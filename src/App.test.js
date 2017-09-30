@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-dom/test-utils';
 import App from './App';
 
 
@@ -10,11 +11,13 @@ it('renders without crashing', () => {
 
 describe('Basic functionality tests', () => {
 	beforeEach(() => {
-		const div = document.createElement('div');
-		ReactDOM.render(<App />, div);
+		const view = ReactTestUtils.renderIntoDocument(<DailyView />)
 	});
 	
 	it('Updates initials', () => {
-
+		view.
 	})
 })
+
+
+var result = view.daysFromNextMonth(day, 10)
